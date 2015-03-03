@@ -22,4 +22,9 @@ public class StringCalculatorTest {
     public void shouldReturnTheInputOnSingleInput() {
         Assert.assertTrue(stringCalculator.add("1") == 1);
     }
+
+    @Test
+    public void shouldReturnTheSumOfInputWhenSeparatedWithComma() {
+        Assert.assertTrue(stringCalculator.add("2,2") == 4);
+    }
 }
