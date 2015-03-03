@@ -17,4 +17,9 @@ public class StringCalculatorTest {
     public void shouldReturnZeroOnEmptyString() {
         Assert.assertTrue(stringCalculator.add("") == 0);
     }
+
+    @Test
+    public void shouldReturnTheInputOnSingleInput() {
+        Assert.assertTrue(stringCalculator.add("1") == 1);
+    }
 }
