@@ -2,7 +2,9 @@ package daniel.szabo.stringCalculator;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class StringCalculatorTest {
 
@@ -36,5 +38,15 @@ public class StringCalculatorTest {
         Assert.assertTrue(stringCalculator.add("3/4/5/6") == 18);
         Assert.assertTrue(stringCalculator.add("3|4|5|6") == 18);
         Assert.assertTrue(stringCalculator.add("3~4~5~6") == 18);
+    }
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
+    @Test
+    public void shouldThrowExceptionOnNegativeInput() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Negatives not allowed: -3, -5");
+        stringCalculator.add("-3mm4mm3mm-5mm16");
     }
 }
