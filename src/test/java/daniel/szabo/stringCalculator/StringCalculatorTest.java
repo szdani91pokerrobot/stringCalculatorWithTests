@@ -26,5 +26,15 @@ public class StringCalculatorTest {
     @Test
     public void shouldReturnTheSumOfInputWhenSeparatedWithComma() {
         Assert.assertTrue(stringCalculator.add("2,2") == 4);
+        Assert.assertTrue(stringCalculator.add("2,2,2") == 6);
+    }
+
+    @Test
+    public void shouldReturnTheSumOfInputWhenSeparatedWithArbitraryCharacters() {
+        Assert.assertTrue(stringCalculator.add("3;4;4;6") == 17);
+        Assert.assertTrue(stringCalculator.add("3++4++5++6") == 18);
+        Assert.assertTrue(stringCalculator.add("3/4/5/6") == 18);
+        Assert.assertTrue(stringCalculator.add("3|4|5|6") == 18);
+        Assert.assertTrue(stringCalculator.add("3~4~5~6") == 18);
     }
 }
